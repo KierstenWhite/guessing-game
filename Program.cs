@@ -23,24 +23,25 @@ void Main()
             
             
             numberOfTries++;
-            int secretNumber = 42; //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number.
+            int secretNumber = new Random().Next(0, 100); //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number. ; Use a random number between 1 and 100 instead of a hard-coded number.
             int parsedUserGuess = int.Parse(userGuess);
 
 
             
             //Compare the user's guess with the secret number
             if (parsedUserGuess == secretNumber) {
-                Console.WriteLine("You guessed the secret number - 42!"); //Display a success message if the guess is correct,
+                Console.WriteLine($@"You guessed the secret number - {secretNumber}!"); //Display a success message if the guess is correct,
                 break; //added a line so the game ends
             }
             if (numberOfTries == allowedTries) 
             {
-                Console.WriteLine("The right number was 42, sorry!");
+                Console.WriteLine($@"The right number was {secretNumber}, sorry!");
                 break;
             }
             else
             {
-                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}"); //otherwise display a failure message.
+                int attemptsLeft = (allowedTries - numberOfTries); //The prompt should display the number of guesses the user has left.
+                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. You have {attemptsLeft} attempt left."); //otherwise display a failure message.
             }
             
         }
@@ -49,16 +50,6 @@ void Main()
 
 /*
 
-Phase 4
-The program should be updated to...
-
-Display the number of the user's current guess in the prompt. For example, if the user has already guessed one time, the prommpt should say something like Your guess (2)>.
-End the loop early if the user guesses the correct number.
-Phase 5
-The program shoulgit ad be updated to...
-
-Use a random number between 1 and 100 instead of a hard-coded number.
-The prompt should display the number of guesses the user has left.
 Phase 6
 The program should be updated to...
 
