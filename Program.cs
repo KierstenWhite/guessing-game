@@ -6,6 +6,9 @@ void Main()
         //Display a message to the user asking them to guess the secret number.
         Console.WriteLine("Welcome to Guessing Game - Can you guess the secret number?");
 
+        int allowedTries = 4; //Give the user four chances to guess the number.
+        int numberOfTries = 0;
+
         while (true)
         {
             Console.WriteLine("Guess any number!"); //Display a prompt for the user's guess.
@@ -16,43 +19,36 @@ void Main()
                 Console.WriteLine("You haven't guessed a number yet!");
             }
 
-            int parsedUserGuess = int.Parse(userGuess);
             // Console.WriteLine($@"You guessed: {userGuess}"); //Display the user's guess back to the screen. ; No longer display the user's guess. They know what they guessed, right?
-
+            
+            
+            numberOfTries++;
             int secretNumber = 42; //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number.
+            int parsedUserGuess = int.Parse(userGuess);
 
+
+            
             //Compare the user's guess with the secret number.
             if (parsedUserGuess == secretNumber) {
                 Console.WriteLine("You guessed the secret number - 42!"); //Display a success message if the guess is correct,
                 break; //added a line so the game ends
             }
+            if (numberOfTries == allowedTries) 
+            {
+                Console.WriteLine("The right number was 42, sorry!");
+                break;
+            }
             else
             {
                 Console.WriteLine("FAILURE."); //otherwise display a failure message.
             }
+            
         }
 }
 
 
 /*
-Write a console program in C# that invites the user to guess a number.
 
-The program should be written in increments. Each phase will add a little more complexity.
-
-Phase 1
-The program should...
-
-Display a message to the user asking them to guess the secret number.
-Display a prompt for the user's guess.
-Take the user's guess as input and save it as a variable.
-Display the user's guess back to the screen.
-
-Phase 2
-The program should be updated to...
-
-Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number.
-No longer display the user's guess. They know what they guessed, right?
-Compare the user's guess with the secret number. Display a success message if the guess is correct, otherwise display a failure message.
 Phase 3
 The program should be updated to...
 
