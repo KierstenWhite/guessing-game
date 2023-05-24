@@ -8,26 +8,20 @@ void Main()
 
         int allowedTries = 4; //Give the user four chances to guess the number.
         int numberOfTries = 0;
+        int secretNumber = new Random().Next(0, 100); //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number. ; Use a random number between 1 and 100 instead of a hard-coded number.
+
 
         while (true)
         {
             Console.WriteLine("Guess any number!"); //Display a prompt for the user's guess.
             string userGuess = Console.ReadLine(); //Take the user's guess as input and save it as a variable.
 
-            if (userGuess.Length == 0)
-            {
-                Console.WriteLine("You haven't guessed a number yet!");
-            }
 
             // Console.WriteLine($@"You guessed: {userGuess}"); //Display the user's guess back to the screen. ; No longer display the user's guess. They know what they guessed, right?
             
-            
             numberOfTries++;
-            int secretNumber = new Random().Next(0, 100); //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number. ; Use a random number between 1 and 100 instead of a hard-coded number.
             int parsedUserGuess = int.Parse(userGuess);
 
-
-            
             //Compare the user's guess with the secret number
             if (parsedUserGuess == secretNumber) {
                 Console.WriteLine($@"You guessed the secret number - {secretNumber}!"); //Display a success message if the guess is correct,
@@ -38,10 +32,15 @@ void Main()
                 Console.WriteLine($@"The right number was {secretNumber}, sorry!");
                 break;
             }
+            if (parsedUserGuess == 0) //how do I make this if you didn't put a guess and just hit enter?
+            {
+                Console.WriteLine("You haven't guessed a number yet!");
+            }
             else
             {
                 int attemptsLeft = (allowedTries - numberOfTries); //The prompt should display the number of guesses the user has left.
-                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. You have {attemptsLeft} attempt left."); //otherwise display a failure message.
+                string highLow = parsedUserGuess > secretNumber ? "Your guess is higher than the secret number." : "Your guess is lower than the secret number.";
+                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. {highLow} You have {attemptsLeft} attempt(s) left."); //otherwise display a failure message.
             }
             
         }
