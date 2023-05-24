@@ -28,7 +28,7 @@ void Main()
 
 
             
-            //Compare the user's guess with the secret number.
+            //Compare the user's guess with the secret number
             if (parsedUserGuess == secretNumber) {
                 Console.WriteLine("You guessed the secret number - 42!"); //Display a success message if the guess is correct,
                 break; //added a line so the game ends
@@ -40,7 +40,7 @@ void Main()
             }
             else
             {
-                Console.WriteLine("FAILURE."); //otherwise display a failure message.
+                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}"); //otherwise display a failure message.
             }
             
         }
@@ -49,18 +49,13 @@ void Main()
 
 /*
 
-Phase 3
-The program should be updated to...
-
-Give the user four chances to guess the number.
-Continue to display the success or failure messages as in phase 2
 Phase 4
 The program should be updated to...
 
 Display the number of the user's current guess in the prompt. For example, if the user has already guessed one time, the prommpt should say something like Your guess (2)>.
 End the loop early if the user guesses the correct number.
 Phase 5
-The program should be updated to...
+The program shoulgit ad be updated to...
 
 Use a random number between 1 and 100 instead of a hard-coded number.
 The prompt should display the number of guesses the user has left.
