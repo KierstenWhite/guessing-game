@@ -9,25 +9,23 @@ void Main()
         Console.WriteLine("Press 1 for Easy.");
         Console.WriteLine("Press 2 for Medium.");
         Console.WriteLine("Press 3 for Hard.");
+        Console.WriteLine("Press 4 to cheat and have endless tries!");
         string difficulty = Console.ReadLine();
         int parsedChosenDifficulty = int.Parse(difficulty);
         int allowedTries = 0; //Give the user four chances to guess the number.
         
-        if (parsedChosenDifficulty == 1) {
+        if (parsedChosenDifficulty == 1) { //Easy - this gives the user eight guesses.
             allowedTries = 8;
         }
-        if (parsedChosenDifficulty == 2) {
+        if (parsedChosenDifficulty == 2) { //Medium - this gives the user six guesses.
             allowedTries = 6;
         }
-        else if (parsedChosenDifficulty == 3) {
+        if (parsedChosenDifficulty == 3) { //Hard - this gives the user four guesses.
             allowedTries = 4;
+        }
+        else if (parsedChosenDifficulty == 4) {  
         };
 
-        //Easy - this gives the user eight guesses.
-        //Medium - this gives the user six guesses.
-        //Hard - this gives the user four guesses.
-        
-        
         Console.WriteLine("Guess any number!"); //Display a prompt for the user's guess.
         
        
@@ -59,6 +57,12 @@ void Main()
             if (parsedUserGuess == 0) //how do I make this if you didn't put a guess and just hit enter?
             {
                 Console.WriteLine("You haven't guessed a number yet!");
+            }
+            if (parsedChosenDifficulty == 4)
+            {
+               string highLow = parsedUserGuess > secretNumber ? "Your guess is higher than the secret number." : "Your guess is lower than the secret number.";
+                Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. {highLow} Keeping guessing!"); //otherwise display a failure message.
+             
             }
             else
             {
