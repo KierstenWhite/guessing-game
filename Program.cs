@@ -32,13 +32,9 @@ void Main()
         int numberOfTries = 0;
         int secretNumber = new Random().Next(0, 100); //Create a variable to contain the secret number. This number should be hard-coded for now. 42 is a nice number. ; Use a random number between 1 and 100 instead of a hard-coded number.
 
-    
-
         while (true)
         {
             string userGuess = Console.ReadLine(); //Take the user's guess as input and save it as a variable.
-
-
             // Console.WriteLine($@"You guessed: {userGuess}"); //Display the user's guess back to the screen. ; No longer display the user's guess. They know what they guessed, right?
             
             numberOfTries++;
@@ -62,7 +58,6 @@ void Main()
             {
                string highLow = parsedUserGuess > secretNumber ? "Your guess is higher than the secret number." : "Your guess is lower than the secret number.";
                 Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. {highLow} Keeping guessing!"); //otherwise display a failure message.
-             
             }
             else
             {
@@ -70,15 +65,5 @@ void Main()
                 string highLow = parsedUserGuess > secretNumber ? "Your guess is higher than the secret number." : "Your guess is lower than the secret number.";
                 Console.WriteLine($@"FAILURE. You guessed {parsedUserGuess}. {highLow} You have {attemptsLeft} attempt(s) left."); //otherwise display a failure message.
             }
-            
         }
 }
-
-
-/*
-
-Phase 8
-The program should be updated to...
-
-Add a difficulty level of "Cheater" which will cause the program to continue prompting the user until they get the answer correct.
-*/
